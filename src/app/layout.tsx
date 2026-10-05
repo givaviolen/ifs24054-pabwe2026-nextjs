@@ -3,7 +3,7 @@ import "./globals.css";
 import Providers from "@/components/Providers";
 
 export const metadata: Metadata = {
-  title: "Delcom Posts - ifs24024",
+  title: "Delcom Posts - ifs24054",
   description: "Aplikasi Postingan Delcom Open API PABWE 2026",
 };
 

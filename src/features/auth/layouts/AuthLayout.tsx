@@ -27,7 +27,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         {children}
       </main>
       <footer className="mt-6 text-xs text-gray-600">
-        © 2026 Delcom Open API • ifs24024
+        © 2026 Delcom Open API • ifs24054
       </footer>
     </div>
   );
