@@ -51,14 +51,14 @@ export default function AddModal({ isOpen, onClose }: AddModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
-      <div className="w-full max-w-lg bg-white rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-          <h3 className="font-semibold text-gray-900 text-lg">Buat Postingan Baru</h3>
+      <div className="w-full max-w-lg bg-slate-900 rounded-none shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800">
+          <h3 className="font-semibold text-slate-50 text-lg">Buat Postingan Baru</h3>
           <button
             type="button"
             onClick={onClose}
             aria-label="Tutup modal"
-            className="p-1 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition"
+            className="p-1 rounded-none text-slate-300 hover:text-gray-900 hover:bg-slate-700 transition"
           >
             <IconX className="w-5 h-5" />
           </button>
@@ -72,12 +72,12 @@ export default function AddModal({ isOpen, onClose }: AddModalProps) {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Apa yang sedang Anda pikirkan?"
-              className="w-full p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+              className="w-full p-3 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
           </div>
 
           {coverPreview ? (
-            <div className="relative rounded-xl overflow-hidden border border-gray-200 max-h-56">
+            <div className="relative rounded-none overflow-hidden border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 max-h-56">
               <img
                 src={coverPreview}
                 alt="Pratinjau cover"
@@ -87,7 +87,7 @@ export default function AddModal({ isOpen, onClose }: AddModalProps) {
                 type="button"
                 onClick={handleRemoveCover}
                 aria-label="Hapus gambar"
-                className="absolute top-2 right-2 p-1.5 bg-black/60 hover:bg-black/80 text-white rounded-full transition"
+                className="absolute top-2 right-2 p-1.5 bg-black/60 hover:bg-black/80 text-white rounded-sm transition"
                 title="Hapus gambar"
               >
                 <IconX className="w-4 h-4" />
@@ -99,9 +99,9 @@ export default function AddModal({ isOpen, onClose }: AddModalProps) {
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
-                className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-xs font-medium text-gray-600 hover:bg-gray-50 transition"
+                className="flex items-center gap-2 px-4 py-2 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-none text-xs font-medium text-slate-300 hover:bg-slate-700 transition"
               >
-                <IconPhoto className="w-4 h-4 text-blue-600" />
+                <IconPhoto className="w-4 h-4 text-indigo-400" />
                 <span>Tambah Foto Cover</span>
               </button>
             </div>
@@ -115,18 +115,18 @@ export default function AddModal({ isOpen, onClose }: AddModalProps) {
             className="hidden"
           />
 
-          <div className="flex items-center justify-end gap-3 pt-3 border-t border-gray-100">
+          <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-800">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-lg transition"
+              className="px-4 py-2 text-sm font-medium text-slate-300 hover:bg-slate-700 rounded-none transition"
             >
               Batal
             </button>
             <button
               type="submit"
               disabled={isSubmitting || !description.trim()}
-              className="px-5 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg shadow-sm transition"
+              className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-sm font-medium rounded-none shadow-lg shadow-indigo-500/10 transition"
             >
               {isSubmitting ? "Mempublikasikan..." : "Publikasikan"}
             </button>

@@ -33,10 +33,10 @@ export default function LoginPage() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">Masuk ke Akun Anda</h2>
+      <h2 className="text-xl font-semibold text-slate-100 mb-6 text-center">Masuk ke Akun Anda</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="login-email-input">
+          <label className="block text-sm font-medium text-slate-200 mb-1" htmlFor="login-email-input">
             Alamat Email
           </label>
           <input
@@ -50,12 +50,12 @@ export default function LoginPage() {
             value={email}
             onChange={onEmailChange}
             placeholder="nama@delcom.org"
-            className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm"
+            className="w-full px-4 py-2.5 rounded-none border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="login-password-input">
+          <label className="block text-sm font-medium text-slate-200 mb-1" htmlFor="login-password-input">
             Kata Sandi
           </label>
           <input
@@ -68,7 +68,7 @@ export default function LoginPage() {
             value={password}
             onChange={onPasswordChange}
             placeholder="Minimal 6 karakter"
-            className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm"
+            className="w-full px-4 py-2.5 rounded-none border border-slate-600 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-sm"
           />
         </div>
 
@@ -77,15 +77,15 @@ export default function LoginPage() {
           data-testid="login-submit-button"
           type="submit"
           disabled={isLoading}
-          className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium rounded-lg shadow-md transition duration-150 ease-in-out text-sm cursor-pointer"
+          className="w-full py-2.5 px-4 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-medium rounded-none shadow-md transition duration-150 ease-in-out text-sm cursor-pointer"
         >
           {isLoading ? "Sedang Memproses..." : "Masuk"}
         </button>
       </form>
 
-      <div className="mt-6 text-center text-sm text-gray-600">
+      <div className="mt-6 text-center text-sm text-slate-300">
         Belum punya akun?{" "}
-        <Link href="/auth/register" className="font-semibold text-blue-600 hover:text-blue-500">
+        <Link href="/auth/register" className="font-semibold text-indigo-400 hover:text-blue-500">
           Daftar sekarang
         </Link>
       </div>

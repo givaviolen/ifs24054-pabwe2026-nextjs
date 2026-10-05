@@ -105,30 +105,30 @@ export default function ProfilePage() {
     /* v8 ignore start */
     <div className="max-w-4xl mx-auto space-y-8">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Pengaturan Profil</h1>
-        <p className="text-sm text-gray-600">Kelola informasi pribadi, foto avatar, dan keamanan akun Anda</p>
+        <h1 className="text-2xl font-bold text-slate-50">Pengaturan Profil</h1>
+        <p className="text-sm text-slate-300">Kelola informasi pribadi, foto avatar, dan keamanan akun Anda</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* User Card & Photo */}
-        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex flex-col items-center text-center">
+        <div className="bg-slate-900 p-6 rounded-none border border-slate-800 shadow-lg shadow-indigo-500/10 flex flex-col items-center text-center">
           <div className="relative mb-4">
             {photoPreview || authUser?.photo ? (
               <img
                 src={photoPreview || authUser?.photo || ""}
                 alt=""
                 aria-hidden="true"
-                className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md"
+                className="w-28 h-28 rounded-sm object-cover border-4 border-slate-900 shadow-md"
               />
             ) : (
-              <div className="w-28 h-28 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-3xl shadow-inner">
+              <div className="w-28 h-28 rounded-sm bg-indigo-900 text-indigo-400 flex items-center justify-center font-bold text-3xl shadow-inner">
                 {authUser?.name ? authUser.name.charAt(0).toUpperCase() : "U"}
               </div>
             )}
             <button
               type="button"
               onClick={() => fileInputRef.current?.click()}
-              className="absolute bottom-0 right-0 p-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 shadow transition"
+              className="absolute bottom-0 right-0 p-2 bg-indigo-600 text-white rounded-sm hover:bg-indigo-500 shadow transition"
               title="Pilih foto"
               aria-label="Pilih foto"
             >
@@ -143,9 +143,9 @@ export default function ProfilePage() {
             />
           </div>
 
-          <h2 className="font-bold text-lg text-gray-900">{authUser?.name}</h2>
-          <p className="text-sm text-gray-600">{authUser?.email}</p>
-          <span className="mt-2 text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
+          <h2 className="font-bold text-lg text-slate-50">{authUser?.name}</h2>
+          <p className="text-sm text-slate-300">{authUser?.email}</p>
+          <span className="mt-2 text-xs bg-slate-800 text-slate-300 px-3 py-1 rounded-sm">
             Bergabung {formatDate(authUser?.created_at)}
           </span>
 
@@ -153,7 +153,7 @@ export default function ProfilePage() {
             <button
               onClick={handlePhotoSubmit}
               disabled={isUpdatingPhoto}
-              className="mt-4 w-full py-2 px-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium rounded-lg transition"
+              className="mt-4 w-full py-2 px-3 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium rounded-none transition"
             >
               {isUpdatingPhoto ? "Menyimpan Foto..." : "Simpan Foto Baru"}
             </button>
@@ -162,14 +162,14 @@ export default function ProfilePage() {
 
         {/* Profile Info Form */}
         <div className="md:col-span-2 space-y-6">
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-            <h3 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <IconUser className="w-5 h-5 text-blue-600" />
+          <div className="bg-slate-900 p-6 rounded-none border border-slate-800 shadow-lg shadow-indigo-500/10">
+            <h3 className="text-base font-semibold text-slate-50 mb-4 flex items-center gap-2">
+              <IconUser className="w-5 h-5 text-indigo-400" />
               Informasi Pribadi
             </h3>
             <form onSubmit={handleProfileSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-600 mb-1" htmlFor="name">
+                <label className="block text-xs font-semibold text-slate-300 mb-1" htmlFor="name">
                   Nama Lengkap
                 </label>
                 <input
@@ -178,23 +178,23 @@ export default function ProfilePage() {
                   required
                   value={name}
                   onChange={onNameChange}
-                  className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-gray-600 mb-1" htmlFor="email">
+                <label className="block text-xs font-semibold text-slate-300 mb-1" htmlFor="email">
                   Alamat Email
                 </label>
                 <div className="relative">
-                  <IconMail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <IconMail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
                   <input
                     id="email"
                     type="email"
                     required
                     value={email}
                     onChange={onEmailChange}
-                    className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full pl-9 pr-4 py-2 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -202,7 +202,7 @@ export default function ProfilePage() {
               <button
                 type="submit"
                 disabled={isUpdatingProfile}
-                className="py-2 px-5 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition"
+                className="py-2 px-5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white text-sm font-medium rounded-none transition"
               >
                 {isUpdatingProfile ? "Menyimpan..." : "Simpan Perubahan"}
               </button>
@@ -210,14 +210,14 @@ export default function ProfilePage() {
           </div>
 
           {/* Change Password Form */}
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-            <h3 className="text-base font-semibold text-gray-900 mb-4 flex items-center gap-2">
-              <IconLock className="w-5 h-5 text-blue-600" />
+          <div className="bg-slate-900 p-6 rounded-none border border-slate-800 shadow-lg shadow-indigo-500/10">
+            <h3 className="text-base font-semibold text-slate-50 mb-4 flex items-center gap-2">
+              <IconLock className="w-5 h-5 text-indigo-400" />
               Keamanan & Kata Sandi
             </h3>
             <form onSubmit={handlePasswordSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-gray-600 mb-1" htmlFor="oldPassword">
+                <label className="block text-xs font-semibold text-slate-300 mb-1" htmlFor="oldPassword">
                   Kata Sandi Lama
                 </label>
                 <input
@@ -227,13 +227,13 @@ export default function ProfilePage() {
                   value={oldPassword}
                   onChange={onOldPasswordChange}
                   placeholder="Masukkan kata sandi saat ini"
-                  className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-1" htmlFor="newPassword">
+                  <label className="block text-xs font-semibold text-slate-300 mb-1" htmlFor="newPassword">
                     Kata Sandi Baru
                   </label>
                   <input
@@ -243,12 +243,12 @@ export default function ProfilePage() {
                     value={newPassword}
                     onChange={onNewPasswordChange}
                     placeholder="Minimal 6 karakter"
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-1" htmlFor="confirmPassword">
+                  <label className="block text-xs font-semibold text-slate-300 mb-1" htmlFor="confirmPassword">
                     Konfirmasi Kata Sandi Baru
                   </label>
                   <input
@@ -258,7 +258,7 @@ export default function ProfilePage() {
                     value={confirmPassword}
                     onChange={onConfirmPasswordChange}
                     placeholder="Ulangi kata sandi baru"
-                    className="w-full px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>
@@ -266,7 +266,7 @@ export default function ProfilePage() {
               <button
                 type="submit"
                 disabled={isUpdatingPassword}
-                className="py-2 px-5 bg-gray-800 hover:bg-gray-900 disabled:opacity-50 text-white text-sm font-medium rounded-lg transition"
+                className="py-2 px-5 bg-slate-100 hover:bg-slate-200 disabled:opacity-50 text-white text-sm font-medium rounded-none transition"
               >
                 {isUpdatingPassword ? "Memperbarui..." : "Perbarui Kata Sandi"}
               </button>

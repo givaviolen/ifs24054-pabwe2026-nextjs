@@ -32,34 +32,34 @@ export default function NavbarComponent({ onToggleMobileSidebar }: NavbarProps) 
   };
 
   return (
-    <header className="sticky top-0 z-30 bg-white border-b border-gray-200 shadow-sm h-16 flex items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-30 bg-slate-900 border-b border-slate-700 shadow-lg shadow-indigo-500/10 h-16 flex items-center justify-between px-4 sm:px-6">
       <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={onToggleMobileSidebar}
-          className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 focus:outline-none"
+          className="lg:hidden p-2 rounded-none text-slate-300 hover:bg-slate-700 focus:outline-none"
           aria-label="Buka menu navigasi"
         >
           <IconMenu2 className="w-6 h-6" />
         </button>
 
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-sm">
+          <div className="w-9 h-9 bg-indigo-600 rounded-none flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-indigo-500/10">
             P
           </div>
-          <span className="font-bold text-gray-900 text-lg hidden sm:inline">Delcom Posts</span>
+          <span className="font-bold text-slate-50 text-lg hidden sm:inline">Delcom Posts</span>
         </Link>
       </div>
 
       <div className="flex-1 max-w-md mx-4">
         <div className="relative">
-          <IconSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <IconSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4" />
           <input
             type="text"
             value={searchQuery}
             onChange={handleSearchChange}
             placeholder="Cari postingan atau penulis..."
-            className="w-full pl-9 pr-4 py-1.5 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
+            className="w-full pl-9 pr-4 py-1.5 bg-slate-800 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-sm text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
           />
         </div>
       </div>
@@ -67,24 +67,24 @@ export default function NavbarComponent({ onToggleMobileSidebar }: NavbarProps) 
       <div className="flex items-center gap-3">
         <Link
           href="/profile"
-          className="flex items-center gap-2 p-1.5 rounded-lg hover:bg-gray-100 transition"
+          className="flex items-center gap-2 p-1.5 rounded-none hover:bg-slate-700 transition"
         >
           {authUser?.photo ? (
             <img
               src={authUser.photo}
               alt=""
               aria-hidden="true"
-              className="w-8 h-8 rounded-full object-cover border border-gray-200"
+              className="w-8 h-8 rounded-sm object-cover border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400"
             />
           ) : (
             /* v8 ignore start */
-            <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-sm">
+            <div className="w-8 h-8 rounded-sm bg-indigo-900 text-indigo-400 flex items-center justify-center font-bold text-sm">
               {authUser?.name ? authUser.name.charAt(0).toUpperCase() : "U"}
             </div>
             /* v8 ignore stop */
           )}
           {/* v8 ignore next 3 */}
-          <span className="text-sm font-medium text-gray-700 hidden md:inline truncate max-w-[120px]">
+          <span className="text-sm font-medium text-slate-200 hidden md:inline truncate max-w-[120px]">
             {authUser?.name || "Pengguna"}
           </span>
         </Link>
@@ -93,7 +93,7 @@ export default function NavbarComponent({ onToggleMobileSidebar }: NavbarProps) 
           type="button"
           onClick={handleLogout}
           aria-label="Keluar"
-          className="p-2 text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition"
+          className="p-2 text-slate-300 hover:text-red-600 hover:bg-red-900/30 rounded-none transition"
           title="Keluar"
         >
           <IconLogout className="w-5 h-5" />
