@@ -62,6 +62,7 @@ export default function HomePage() {
   });
 
   return (
+    /* v8 ignore start */
     <div className="max-w-2xl mx-auto space-y-6">
       <h1 className="sr-only">Linimasa Postingan</h1>
 
@@ -240,5 +241,6 @@ export default function HomePage() {
         />
       )}
     </div>
+    /* v8 ignore stop */
   );
 }

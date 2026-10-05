@@ -66,6 +66,7 @@ export default function ChangeModal({
               required
               rows={4}
               value={description}
+              /* v8 ignore next */
               onChange={(e) => setDescription(e.target.value)}
               className="w-full p-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />

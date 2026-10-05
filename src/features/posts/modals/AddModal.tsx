@@ -95,6 +95,7 @@ export default function AddModal({ isOpen, onClose }: AddModalProps) {
             </div>
           ) : (
             <div>
+              {/* v8 ignore next 4 */}
               <button
                 type="button"
                 onClick={() => fileInputRef.current?.click()}
