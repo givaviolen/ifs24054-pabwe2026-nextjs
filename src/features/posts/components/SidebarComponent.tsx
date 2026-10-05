@@ -58,19 +58,19 @@ export default function SidebarComponent({
 
       {/* Sidebar Drawer */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 w-64 bg-slate-900 border-r border-slate-700 p-5 flex flex-col justify-between transition-transform duration-200 ease-in-out lg:static lg:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-50 w-64 bg-white border-r border-gray-200 p-5 flex flex-col justify-between transition-transform duration-200 ease-in-out lg:static lg:translate-x-0 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div>
           {/* Header on mobile */}
           <div className="flex items-center justify-between lg:hidden mb-6">
-            <span className="font-bold text-slate-50 text-lg">Menu</span>
+            <span className="font-bold text-gray-900 text-lg">Menu</span>
             <button
               type="button"
               onClick={onClose}
               aria-label="Tutup menu navigasi"
-              className="p-1 rounded-none text-slate-300 hover:bg-slate-700"
+              className="p-1 rounded-lg text-gray-600 hover:bg-gray-100"
             >
               <IconX className="w-5 h-5" />
             </button>
@@ -83,7 +83,7 @@ export default function SidebarComponent({
               onClose();
               onOpenAddModal();
             }}
-            className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-none shadow-md shadow-blue-500/20 transition mb-6"
+            className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-violet-600 hover:bg-violet-700 text-white font-medium rounded-xl shadow-md shadow-violet-500/20 transition mb-6"
           >
             <IconPlus className="w-5 h-5" />
             <span>Buat Postingan</span>
@@ -99,10 +99,10 @@ export default function SidebarComponent({
                   key={item.href}
                   href={item.href}
                   onClick={onClose}
-                  className={`flex items-center gap-3 px-4 py-2.5 rounded-none font-medium text-sm transition ${
+                  className={`flex items-center gap-3 px-4 py-2.5 rounded-xl font-medium text-sm transition ${
                     isActive
-                      ? "bg-blue-50 text-indigo-400"
-                      : "text-slate-300 hover:bg-slate-700 hover:text-gray-900"
+                      ? "bg-violet-50 text-violet-600"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -114,11 +114,11 @@ export default function SidebarComponent({
         </div>
 
         {/* Delete All Posts Button */}
-        <div className="border-t border-slate-800 pt-4">
+        <div className="border-t border-gray-100 pt-4">
           <button
             type="button"
             onClick={handleDeleteAll}
-            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-none font-medium text-sm text-red-600 hover:bg-red-900/30 transition"
+            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl font-medium text-sm text-red-600 hover:bg-red-50 transition"
           >
             <IconTrash className="w-5 h-5" />
             <span>Hapus Semua Post</span>

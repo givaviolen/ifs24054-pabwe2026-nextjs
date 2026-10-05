@@ -68,8 +68,8 @@ export default function DetailPage({ postId }: DetailPageProps) {
   if (!post) {
     return (
       <div className="max-w-2xl mx-auto py-12 text-center">
-        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-sm animate-spin mx-auto mb-3" />
-        <p className="text-sm text-slate-400">Memuat detail postingan...</p>
+        <div className="w-8 h-8 border-4 border-violet-600 border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+        <p className="text-sm text-gray-500">Memuat detail postingan...</p>
       </div>
     );
   }
@@ -86,7 +86,7 @@ export default function DetailPage({ postId }: DetailPageProps) {
       <div>
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-slate-300 hover:text-indigo-300 transition"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-violet-600 transition"
         >
           <IconArrowLeft className="w-4 h-4" />
           <span>Kembali ke Linimasa</span>
@@ -94,36 +94,36 @@ export default function DetailPage({ postId }: DetailPageProps) {
       </div>
 
       {/* Main Post Card */}
-      <article className="bg-slate-900 rounded-none border border-slate-800 shadow-lg shadow-indigo-500/10 overflow-hidden">
+      <article className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
         {/* Header */}
         <div className="p-5 flex items-center gap-3">
           {post.author?.photo ? (
             <img
               src={post.author.photo}
               alt={post.author.name}
-              className="w-11 h-11 rounded-sm object-cover border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400"
+              className="w-11 h-11 rounded-full object-cover border border-gray-200"
             />
           ) : (
-            <div className="w-11 h-11 rounded-sm bg-indigo-900 text-indigo-400 flex items-center justify-center font-bold text-base">
+            <div className="w-11 h-11 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center font-bold text-base">
               {post.author?.name ? post.author.name.charAt(0).toUpperCase() : "U"}
             </div>
           )}
           <div>
-            <h3 className="font-semibold text-slate-50">{post.author?.name}</h3>
-            <p className="text-xs text-slate-500">{formatDate(post.created_at)}</p>
+            <h3 className="font-semibold text-gray-900">{post.author?.name}</h3>
+            <p className="text-xs text-gray-400">{formatDate(post.created_at)}</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="px-5 pb-4">
-          <p className="text-slate-100 text-base whitespace-pre-line leading-relaxed">
+          <p className="text-gray-800 text-base whitespace-pre-line leading-relaxed">
             {post.description}
           </p>
         </div>
 
         {/* Cover */}
         {post.cover && (
-          <div className="bg-slate-800 max-h-[450px] overflow-hidden">
+          <div className="bg-gray-100 max-h-[450px] overflow-hidden">
             <img
               src={post.cover}
               alt="Cover postingan"
@@ -133,13 +133,13 @@ export default function DetailPage({ postId }: DetailPageProps) {
         )}
 
         {/* Actions */}
-        <div className="p-4 sm:p-5 border-t border-slate-800 flex items-center gap-6">
+        <div className="p-4 sm:p-5 border-t border-gray-50 flex items-center gap-6">
           <button
             type="button"
             onClick={handleLike}
             aria-label={isLiked ? "Hapus suka postingan" : "Sukai postingan"}
             className={`flex items-center gap-1.5 text-xs font-semibold transition ${
-              isLiked ? "text-red-600" : "text-slate-300 hover:text-red-600"
+              isLiked ? "text-red-600" : "text-gray-600 hover:text-red-600"
             }`}
           >
             {isLiked ? (
@@ -150,7 +150,7 @@ export default function DetailPage({ postId }: DetailPageProps) {
             <span>{post.likes.length} Suka</span>
           </button>
 
-          <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-gray-500">
             <IconMessageCircle className="w-4 h-4" />
             <span>{post.comments.length} Komentar</span>
           </div>
@@ -158,8 +158,8 @@ export default function DetailPage({ postId }: DetailPageProps) {
       </article>
 
       {/* Comments Section */}
-      <section className="bg-slate-900 rounded-none border border-slate-800 shadow-lg shadow-indigo-500/10 p-5 space-y-6">
-        <h4 className="font-semibold text-slate-50 text-base">
+      <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 space-y-6">
+        <h4 className="font-semibold text-gray-900 text-base">
           Komentar ({post.comments.length})
         </h4>
 
@@ -171,12 +171,12 @@ export default function DetailPage({ postId }: DetailPageProps) {
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
             placeholder="Tulis tanggapan Anda..."
-            className="flex-1 px-4 py-2.5 border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400 rounded-none text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
           />
           <button
             type="submit"
             disabled={isSubmittingComment || !commentText.trim()}
-            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white rounded-none transition flex items-center gap-1 text-sm font-semibold"
+            className="px-4 py-2.5 bg-violet-600 hover:bg-violet-700 disabled:opacity-50 text-white rounded-xl transition flex items-center gap-1 text-sm font-semibold"
           >
             <IconSend className="w-4 h-4" />
             <span className="hidden sm:inline">Kirim</span>
@@ -186,7 +186,7 @@ export default function DetailPage({ postId }: DetailPageProps) {
         {/* Comments List */}
         <div className="space-y-3 pt-2">
           {commentsList.length === 0 ? (
-            <p className="text-xs text-slate-300 text-center py-4">
+            <p className="text-xs text-gray-600 text-center py-4">
               Belum ada komentar. Jadilah yang pertama berkomentar!
             </p>
           ) : (
@@ -195,14 +195,14 @@ export default function DetailPage({ postId }: DetailPageProps) {
               return (
                 <div
                   key={c.id}
-                  className="p-3.5 bg-slate-800 rounded-none flex items-start justify-between gap-3"
+                  className="p-3.5 bg-gray-50 rounded-xl flex items-start justify-between gap-3"
                 >
                   <div className="space-y-1">
-                    <p className="text-xs font-bold text-slate-100">
+                    <p className="text-xs font-bold text-gray-800">
                       {isMyComment ? "Anda" : "Pengguna"}
                     </p>
-                    <p className="text-sm text-slate-200">{c.comment}</p>
-                    <p className="text-[11px] text-slate-300">{formatDate(c.created_at)}</p>
+                    <p className="text-sm text-gray-700">{c.comment}</p>
+                    <p className="text-[11px] text-gray-600">{formatDate(c.created_at)}</p>
                   </div>
 
                   {isMyComment && (
@@ -210,7 +210,7 @@ export default function DetailPage({ postId }: DetailPageProps) {
                       type="button"
                       onClick={handleDeleteComment}
                       aria-label="Hapus komentar saya"
-                      className="p-1 text-slate-300 hover:text-red-600 transition"
+                      className="p-1 text-gray-600 hover:text-red-600 transition"
                       title="Hapus komentar saya"
                     >
                       <IconTrash className="w-4 h-4" />

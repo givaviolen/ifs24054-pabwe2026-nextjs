@@ -28,11 +28,11 @@ export default function PostLayout({ children }: { children: React.ReactNode }) 
 
   if (isPreload) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-slate-800">
+      <main className="min-h-screen flex items-center justify-center bg-gray-50">
         <h1 className="sr-only">Memuat Delcom Posts</h1>
         <div className="flex flex-col items-center gap-3">
-          <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-sm animate-spin" />
-          <p className="text-sm font-medium text-slate-200">Memuat aplikasi...</p>
+          <div className="w-10 h-10 border-4 border-violet-600 border-t-transparent rounded-full animate-spin" />
+          <p className="text-sm font-medium text-gray-700">Memuat aplikasi...</p>
         </div>
       </main>
     );
@@ -43,7 +43,7 @@ export default function PostLayout({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <div className="min-h-screen bg-slate-800 flex flex-col">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavbarComponent
         onToggleMobileSidebar={() => setIsMobileSidebarOpen((prev) => !prev)}
       />

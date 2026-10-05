@@ -67,14 +67,14 @@ export default function HomePage() {
       <h1 className="sr-only">Linimasa Postingan</h1>
 
       {/* Filter Tabs */}
-      <div className="flex bg-slate-800 p-1 rounded-none">
+      <div className="flex bg-gray-100 p-1 rounded-xl">
         <button
           type="button"
           onClick={() => handleTabChange("all")}
-          className={`flex-1 py-2 text-sm font-semibold rounded-none transition ${
+          className={`flex-1 py-2 text-sm font-semibold rounded-lg transition ${
             filter === "all"
-              ? "bg-slate-900 text-indigo-400 shadow-md shadow-indigo-500/10"
-              : "text-slate-300 hover:text-gray-900"
+              ? "bg-white text-violet-600 shadow-xs"
+              : "text-gray-600 hover:text-gray-900"
           }`}
         >
           Semua Postingan
@@ -82,10 +82,10 @@ export default function HomePage() {
         <button
           type="button"
           onClick={() => handleTabChange("me")}
-          className={`flex-1 py-2 text-sm font-semibold rounded-none transition ${
+          className={`flex-1 py-2 text-sm font-semibold rounded-lg transition ${
             filter === "me"
-              ? "bg-slate-900 text-indigo-400 shadow-md shadow-indigo-500/10"
-              : "text-slate-300 hover:text-gray-900"
+              ? "bg-white text-violet-600 shadow-xs"
+              : "text-gray-600 hover:text-gray-900"
           }`}
         >
           Postingan Saya
@@ -94,10 +94,10 @@ export default function HomePage() {
 
       {/* Post List */}
       {filteredPosts.length === 0 ? (
-        <div className="text-center py-16 bg-slate-900 rounded-none border border-slate-800 shadow-md shadow-indigo-500/10">
-          <IconMoodEmpty className="w-12 h-12 text-slate-600 mx-auto mb-3" />
-          <p className="text-slate-200 font-medium">Belum ada postingan yang sesuai</p>
-          <p className="text-xs text-slate-300 mt-1">
+        <div className="text-center py-16 bg-white rounded-2xl border border-gray-100 shadow-xs">
+          <IconMoodEmpty className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+          <p className="text-gray-700 font-medium">Belum ada postingan yang sesuai</p>
+          <p className="text-xs text-gray-600 mt-1">
             {searchQuery
               ? "Coba gunakan kata kunci pencarian yang lain."
               : "Mulai bagikan cerita Anda dengan membuat postingan baru!"}
@@ -112,7 +112,7 @@ export default function HomePage() {
             return (
               <article
                 key={post.id}
-                className="bg-slate-900 rounded-none border border-slate-800 shadow-lg shadow-indigo-500/10 overflow-hidden hover:shadow-md transition"
+                className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition"
               >
                 {/* Header */}
                 <div className="p-4 sm:p-5 flex items-center justify-between">
@@ -122,16 +122,16 @@ export default function HomePage() {
                         src={post.author.photo}
                         alt=""
                         aria-hidden="true"
-                        className="w-10 h-10 rounded-sm object-cover border-b-2 border-transparent focus:border-indigo-500 bg-slate-800 text-white placeholder-slate-400"
+                        className="w-10 h-10 rounded-full object-cover border border-gray-200"
                       />
                     ) : (
-                      <div className="w-10 h-10 rounded-sm bg-indigo-900 text-indigo-400 flex items-center justify-center font-bold text-sm">
+                      <div className="w-10 h-10 rounded-full bg-violet-100 text-violet-600 flex items-center justify-center font-bold text-sm">
                         {post.author?.name ? post.author.name.charAt(0).toUpperCase() : "U"}
                       </div>
                     )}
                     <div>
-                      <h2 className="font-semibold text-slate-50 text-sm">{post.author?.name}</h2>
-                      <p className="text-xs text-slate-300">{formatDate(post.created_at)}</p>
+                      <h2 className="font-semibold text-gray-900 text-sm">{post.author?.name}</h2>
+                      <p className="text-xs text-gray-600">{formatDate(post.created_at)}</p>
                     </div>
                   </div>
 
@@ -142,7 +142,7 @@ export default function HomePage() {
                         onClick={() =>
                           setActiveCoverPost({ id: post.id, cover: post.cover })
                         }
-                        className="p-1.5 text-slate-300 hover:text-indigo-300 rounded-none transition"
+                        className="p-1.5 text-gray-600 hover:text-violet-600 rounded-lg transition"
                         title="Ganti cover"
                         aria-label="Ganti cover"
                       >
@@ -153,7 +153,7 @@ export default function HomePage() {
                         onClick={() =>
                           setActiveEditPost({ id: post.id, desc: post.description })
                         }
-                        className="p-1.5 text-slate-300 hover:text-amber-600 rounded-none transition"
+                        className="p-1.5 text-gray-600 hover:text-amber-600 rounded-lg transition"
                         title="Ubah postingan"
                         aria-label="Ubah postingan"
                       >
@@ -162,7 +162,7 @@ export default function HomePage() {
                       <button
                         type="button"
                         onClick={() => handleDeletePost(post.id)}
-                        className="p-1.5 text-slate-300 hover:text-red-600 rounded-none transition"
+                        className="p-1.5 text-gray-600 hover:text-red-600 rounded-lg transition"
                         title="Hapus postingan"
                         aria-label="Hapus postingan"
                       >
@@ -174,14 +174,14 @@ export default function HomePage() {
 
                 {/* Content */}
                 <div className="px-4 sm:px-5 pb-3">
-                  <p className="text-slate-100 text-sm whitespace-pre-line leading-relaxed">
+                  <p className="text-gray-800 text-sm whitespace-pre-line leading-relaxed">
                     {post.description}
                   </p>
                 </div>
 
                 {/* Cover Image */}
                 {post.cover && (
-                  <div className="mt-2 bg-slate-800 max-h-96 overflow-hidden">
+                  <div className="mt-2 bg-gray-100 max-h-96 overflow-hidden">
                     <img
                       src={post.cover}
                       alt="Cover postingan"
@@ -191,13 +191,13 @@ export default function HomePage() {
                 )}
 
                 {/* Footer Interaction Bar */}
-                <div className="p-4 sm:p-5 border-t border-slate-800 flex items-center gap-6">
+                <div className="p-4 sm:p-5 border-t border-gray-50 flex items-center gap-6">
                   <button
                     type="button"
                     onClick={() => handleLike(post.id, post.likes)}
                     aria-label={isLiked ? "Hapus suka postingan" : "Sukai postingan"}
                     className={`flex items-center gap-1.5 text-xs font-semibold transition ${
-                      isLiked ? "text-red-600" : "text-slate-300 hover:text-red-600"
+                      isLiked ? "text-red-600" : "text-gray-600 hover:text-red-600"
                     }`}
                   >
                     {isLiked ? (
@@ -210,7 +210,7 @@ export default function HomePage() {
 
                   <Link
                     href={`/posts/${post.id}`}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-slate-300 hover:text-indigo-300 transition"
+                    className="flex items-center gap-1.5 text-xs font-semibold text-gray-600 hover:text-violet-600 transition"
                   >
                     <IconMessageCircle className="w-4 h-4" />
                     <span>{post.comments.length} Komentar</span>
